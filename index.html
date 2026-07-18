@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#f5f5f7" />
+<title>2026 夏期講師会議｜岸和田教室</title>
+<style>
+:root{
+  --bg:#f5f5f7;
+  --card:#ffffff;
+  --text:#1d1d1f;
+  --sub:#6e6e73;
+  --line:#d2d2d7;
+  --blue:#0071e3;
+  --blue2:#eaf4ff;
+  --green:#1b7f46;
+  --shadow:0 12px 30px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Yu Gothic","Hiragino Kaku Gothic ProN",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+header{
+  position:sticky; top:0; z-index:20;
+  background:rgba(245,245,247,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(210,210,215,.8);
+}
+.header-inner{
+  max-width:760px; margin:auto;
+  padding:10px 16px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.brand{font-size:13px;font-weight:700;letter-spacing:.05em}
+.progress-wrap{flex:1;max-width:260px}
+.progress-label{font-size:11px;color:var(--sub);text-align:right;margin-bottom:3px}
+.progress{height:6px;background:#e5e5ea;border-radius:999px;overflow:hidden}
+.progress > span{display:block;height:100%;width:0;background:var(--blue);transition:.25s}
+main{max-width:760px;margin:auto;padding:20px 14px 110px}
+.hero{
+  background:linear-gradient(145deg,#fff 0%,#f7fbff 100%);
+  border:1px solid #e8e8ed;
+  border-radius:28px;
+  padding:30px 22px;
+  box-shadow:var(--shadow);
+  margin-bottom:18px;
+}
+.eyebrow{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.08em}
+h1{font-size:30px;line-height:1.25;margin:8px 0 10px}
+.hero p{color:var(--sub);margin:0}
+.card{
+  background:var(--card);
+  border:1px solid #e7e7eb;
+  border-radius:22px;
+  padding:20px 17px;
+  margin:14px 0;
+  box-shadow:0 5px 16px rgba(0,0,0,.035);
+}
+h2{font-size:21px;line-height:1.35;margin:0 0 12px}
+h3{font-size:16px;margin:18px 0 8px}
+.step{
+  display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;
+  padding:12px 0;border-bottom:1px solid var(--line)
+}
+.step:last-child{border-bottom:none}
+.num{
+  width:34px;height:34px;border-radius:50%;
+  display:grid;place-items:center;background:var(--blue2);color:var(--blue);font-weight:800
+}
+.muted{color:var(--sub);font-size:14px}
+.notice{
+  background:var(--blue2);border-left:4px solid var(--blue);
+  border-radius:12px;padding:13px 14px;margin:12px 0
+}
+.grid{display:grid;gap:10px}
+.case{
+  border:1px solid var(--line);
+  border-radius:16px;padding:14px;cursor:pointer;background:#fff;
+  transition:.15s;
+}
+.case:hover{border-color:#9bc9f7}
+.case.selected{border:2px solid var(--blue);background:var(--blue2)}
+.case-title{font-weight:800;margin-bottom:5px}
+.case small{color:var(--sub)}
+label{display:block;font-size:13px;font-weight:700;margin:14px 0 6px}
+input, textarea, select{
+  width:100%;border:1px solid var(--line);border-radius:12px;
+  background:#fff;color:var(--text);
+  padding:12px 13px;font:inherit;font-size:16px;
+}
+textarea{min-height:112px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:3px solid rgba(0,113,227,.16);border-color:var(--blue)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{
+  appearance:none;border:none;border-radius:999px;
+  padding:13px 18px;font-size:15px;font-weight:800;cursor:pointer
+}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-secondary{background:#fff;color:var(--blue);border:1px solid #a9cff6}
+.btn-dark{background:var(--text);color:#fff}
+.btn-full{width:100%}
+.actions{display:grid;gap:10px;margin-top:14px}
+.timer{
+  text-align:center;font-size:42px;font-weight:800;letter-spacing:.04em;
+  margin:6px 0 12px
+}
+.timer-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.chip{
+  display:inline-block;padding:5px 9px;border-radius:999px;
+  background:var(--blue2);color:var(--blue);font-size:12px;font-weight:700;margin:3px 4px 3px 0
+}
+.reference details{
+  border-top:1px solid var(--line);padding:12px 0
+}
+.reference details:first-of-type{border-top:none}
+summary{cursor:pointer;font-weight:800}
+.footer-bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(18px);
+  border-top:1px solid var(--line);
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+}
+.footer-inner{max-width:760px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.status{font-size:12px;color:var(--green);text-align:center;margin-top:8px;min-height:18px}
+.hidden{display:none}
+@media (max-width:560px){
+  h1{font-size:27px}
+  .row{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr 1fr}
+}
+@media print{
+  header,.footer-bar,.timer-controls,.actions{display:none!important}
+  body{background:#fff}
+  main{padding:0}
+  .card,.hero{box-shadow:none;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand">MANABI｜KISHIWADA</div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span id="progressText">0</span>% 入力済み</div>
+      <div class="progress"><span id="progressBar"></span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="eyebrow">2026 SUMMER FACULTY MEETING</div>
+    <h1>承認から始めよう。<br>生徒理解の共有</h1>
+    <p>一人の見え方を、二人の視点で深くする。</p>
+  </section>
+
+  <section class="card">
+    <h2>今日、皆さんにしていただくこと</h2>
+    <p>今回は、授業技術の正解を決める研修ではありません。4つのモデルケースから、担当生徒に近いものを一つ選び、ペアで生徒の姿や変化について話し合います。</p>
+    <div class="step"><div class="num">1</div><div><b>ケースを選ぶ</b><div class="muted">担当生徒に近いケースを一つ選びます。</div></div></div>
+    <div class="step"><div class="num">2</div><div><b>担当生徒について話す</b><div class="muted">授業中の姿、これまでの変化、動ける条件を共有します。</div></div></div>
+    <div class="step"><div class="num">3</div><div><b>二人で書く</b><div class="muted">話して見えてきたことを、この画面に記入します。</div></div></div>
+    <div class="step"><div class="num">4</div><div><b>発表する</b><div class="muted">教室全体で活かせる視点を共有します。</div></div></div>
+    <div class="notice"><b>目的：</b>一人の生徒を、二人の視点でより深く理解すること。すぐに解決策を出すのではなく、今の姿・変化・強みを見つけます。</div>
+  </section>
+
+  <section class="card">
+    <h2>参加者情報</h2>
+    <div class="row">
+      <div><label for="teacher1">講師名</label><input id="teacher1" data-save placeholder="例：山田先生"></div>
+      <div><label for="teacher2">ペア講師名</label><input id="teacher2" data-save placeholder="例：田中先生"></div>
+    </div>
+    <label for="student">担当生徒名またはイニシャル</label>
+    <input id="student" data-save placeholder="個人情報に配慮し、イニシャルでも構いません">
+  </section>
+
+  <section class="card">
+    <h2>4つのモデルケースから選ぶ</h2>
+    <p class="muted">タイプに生徒を当てはめるのではなく、話し合いの入口として使います。</p>
+    <div class="grid" id="caseGrid">
+      <div class="case" data-case="A｜分かったつもり型">
+        <div class="case-title">A｜分かったつもり型</div>
+        <div>説明にはうなずくが、類題を一人で解くと手が止まる。</div>
+        <small>焦点：「分かった」の中に何が足りていないのか</small>
+      </div>
+      <div class="case" data-case="B｜失敗回避型">
+        <div class="case-title">B｜失敗回避型</div>
+        <div>一度間違えると「もう無理」と言い、挑戦をやめる。</div>
+        <small>焦点：何が不安で、何が安心につながるのか</small>
+      </div>
+      <div class="case" data-case="C｜指示待ち型">
+        <div class="case-title">C｜指示待ち型</div>
+        <div>言われたことには取り組むが、質問や次の行動を自分で選ばない。</div>
+        <small>焦点：本人の選択が生まれる条件は何か</small>
+      </div>
+      <div class="case" data-case="D｜状態変動型">
+        <div class="case-title">D｜状態変動型</div>
+        <div>日・講師・周囲の環境によって、集中や取り組みに差がある。</div>
+        <small>焦点：動ける日と止まる日の違いは何か</small>
+      </div>
+    </div>
+    <input type="hidden" id="selectedCase" data-save>
+  </section>
+
+  <section class="card">
+    <h2>ペアワーク｜10分</h2>
+    <div class="timer" id="timer">10:00</div>
+    <div class="timer-controls">
+      <button class="btn btn-primary" type="button" id="startTimer">開始</button>
+      <button class="btn btn-secondary" type="button" id="pauseTimer">一時停止</button>
+      <button class="btn btn-secondary" type="button" id="resetTimer">リセット</button>
+    </div>
+    <h3>聞き手が使う問い</h3>
+    <span class="chip">以前と比べて何が変わった？</span>
+    <span class="chip">うまくいった授業の条件は？</span>
+    <span class="chip">止まりやすい場面は？</span>
+    <span class="chip">その生徒の強みは？</span>
+    <span class="chip">安心している時の様子は？</span>
+    <span class="chip">別の見方はある？</span>
+  </section>
+
+  <section class="card">
+    <h2>記述｜二人で見えたこと</h2>
+
+    <label for="current">① 現在の状況・授業で見られる姿（事実）</label>
+    <textarea id="current" data-save placeholder="例：間違えると鉛筆を置く。最初の一問には取り組める。"></textarea>
+
+    <label for="change">② これまでに見られた変化</label>
+    <textarea id="change" data-save placeholder="例：最近は授業後に一問だけ質問できるようになった。"></textarea>
+
+    <label for="insight">③ 二人で話して新しく見えたこと</label>
+    <textarea id="insight" data-save placeholder="強み／止まりやすい場面／安心して動ける条件／まだ分からないこと"></textarea>
+
+    <label for="common">④ 他の生徒にも活かせそうな共通点・事例</label>
+    <textarea id="common" data-save placeholder="例：途中までできている点を返すと、間違い後も話しやすくなる。"></textarea>
+
+    <label for="watch">⑤ 今後、注目して見たい変化</label>
+    <textarea id="watch" data-save placeholder="例：間違えた後に自分からやり直せる場面が増えるか。"></textarea>
+  </section>
+
+  <section class="card">
+    <h2>発表内容｜1分</h2>
+    <p class="muted">下の「発表文を作成」を押すと、記入内容から発表用の文章を自動で整えます。</p>
+    <button class="btn btn-secondary btn-full" type="button" id="makeSpeech">発表文を作成</button>
+    <label for="speech">発表用メモ</label>
+    <textarea id="speech" data-save style="min-height:190px" placeholder="ここに発表用の文章が入ります。"></textarea>
+  </section>
+
+  <section class="card reference">
+    <h2>困ったときに見る参考資料</h2>
+    <p class="muted">覚える必要はありません。考えが止まったときだけ開いてください。</p>
+    <details>
+      <summary>前提・認知・選択・行動</summary>
+      <p><b>前提：</b>本人が当たり前だと思っていそうなこと</p>
+      <p><b>認知：</b>失敗や声かけをどう受け取った可能性があるか</p>
+      <p><b>選択：</b>本人に何が選べるように見えていたか</p>
+      <p><b>行動：</b>言葉・手・視線・質問に何が起きているか</p>
+    </details>
+    <details>
+      <summary>6つの扉</summary>
+      <p><b>感知：</b>課題を自分ごとにしていない</p>
+      <p><b>理解：</b>意味・手順が分からない</p>
+      <p><b>納得：</b>必要性が腑に落ちない</p>
+      <p><b>挑戦：</b>失敗が怖く始められない</p>
+      <p><b>習慣：</b>一度動くが続かない</p>
+      <p><b>発信：</b>理解しても表現できない</p>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2>湊先生へ送信</h2>
+    <p>送信先：<b>manabi_minato0110@yahoo.co.jp</b></p>
+    <div class="notice">
+      「メールアプリを開く」を押すと、スマホのメールアプリが起動し、件名と本文が自動入力されます。端末によっては本文が長い場合に一部省略されるため、「内容をコピー」も用意しています。
+    </div>
+    <div class="actions">
+      <button class="btn btn-primary btn-full" type="button" id="sendMail">メールアプリを開く</button>
+      <button class="btn btn-secondary btn-full" type="button" id="copyText">内容をコピー</button>
+      <button class="btn btn-secondary btn-full" type="button" id="downloadText">記入内容を保存</button>
+      <button class="btn btn-dark btn-full" type="button" id="clearAll">入力をすべて消去</button>
+    </div>
+    <div class="status" id="status"></div>
+  </section>
+</main>
+
+<div class="footer-bar">
+  <div class="footer-inner">
+    <button class="btn btn-secondary" type="button" id="saveNow">端末に保存</button>
+    <button class="btn btn-primary" type="button" id="jumpSend">送信画面へ</button>
+  </div>
+</div>
+
+<script>
+const SAVE_KEY = "manabi_kishiwada_meeting_2026";
+const recipient = "manabi_minato0110@yahoo.co.jp";
+const fields = [...document.querySelectorAll("[data-save]")];
+const statusEl = document.getElementById("status");
+
+function showStatus(msg){
+  statusEl.textContent = msg;
+  setTimeout(()=>{ if(statusEl.textContent===msg) statusEl.textContent=""; }, 3500);
+}
+function saveData(silent=true){
+  const data={};
+  fields.forEach(el=>data[el.id]=el.value);
+  localStorage.setItem(SAVE_KEY, JSON.stringify(data));
+  updateProgress();
+  if(!silent) showStatus("この端末に保存しました。");
+}
+function loadData(){
+  const raw=localStorage.getItem(SAVE_KEY);
+  if(!raw) return;
+  try{
+    const data=JSON.parse(raw);
+    fields.forEach(el=>{ if(data[el.id]!==undefined) el.value=data[el.id]; });
+    selectCaseVisual(document.getElementById("selectedCase").value);
+  }catch(e){}
+}
+function selectCaseVisual(val){
+  document.querySelectorAll(".case").forEach(c=>c.classList.toggle("selected",c.dataset.case===val));
+}
+document.querySelectorAll(".case").forEach(card=>{
+  card.addEventListener("click",()=>{
+    document.getElementById("selectedCase").value=card.dataset.case;
+    selectCaseVisual(card.dataset.case);
+    saveData();
+  });
+});
+fields.forEach(el=>el.addEventListener("input",()=>saveData()));
+
+function updateProgress(){
+  const target=["teacher1","teacher2","student","selectedCase","current","change","insight","common","watch"];
+  const filled=target.filter(id=>document.getElementById(id).value.trim()).length;
+  const pct=Math.round(filled/target.length*100);
+  document.getElementById("progressText").textContent=pct;
+  document.getElementById("progressBar").style.width=pct+"%";
+}
+
+function buildBody(){
+  const v=id=>document.getElementById(id).value.trim() || "（未記入）";
+  return [
+    "【2026年 夏期講師会議｜ペアワーク記入内容】",
+    "",
+    "講師名：" + v("teacher1"),
+    "ペア講師名：" + v("teacher2"),
+    "担当生徒名・イニシャル：" + v("student"),
+    "選択したケース：" + v("selectedCase"),
+    "",
+    "■ 現在の状況・授業で見られる姿",
+    v("current"),
+    "",
+    "■ これまでに見られた変化",
+    v("change"),
+    "",
+    "■ 二人で話して新しく見えたこと",
+    v("insight"),
+    "",
+    "■ 他の生徒にも活かせそうな共通点・事例",
+    v("common"),
+    "",
+    "■ 今後、注目して見たい変化",
+    v("watch"),
+    "",
+    "■ 発表用メモ",
+    v("speech"),
+    "",
+    "送信日時：" + new Date().toLocaleString("ja-JP")
+  ].join("\n");
+}
+
+document.getElementById("makeSpeech").addEventListener("click",()=>{
+  const v=id=>document.getElementById(id).value.trim();
+  const type=v("selectedCase") || "担当生徒";
+  const student=v("student") || "ある生徒";
+  const speech=[
+    `私たちは、${type}に近い${student}について話しました。`,
+    v("current") ? `授業では、${v("current")}` : "",
+    v("change") ? `これまでの変化として、${v("change")}` : "",
+    v("insight") ? `二人で話す中で、${v("insight")}` : "",
+    v("common") ? `このことは、他の生徒に対しても、${v("common")}` : "",
+    v("watch") ? `今後は、${v("watch")}に注目して見ていきたいです。` : ""
+  ].filter(Boolean).join("\n");
+  document.getElementById("speech").value=speech;
+  saveData();
+  showStatus("発表用の文章を作成しました。");
+});
+
+document.getElementById("sendMail").addEventListener("click",()=>{
+  saveData();
+  const name=document.getElementById("teacher1").value.trim() || "講師";
+  const subject=`【夏期講師会議】ペアワーク記入内容_${name}`;
+  const body=buildBody();
+  location.href=`mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+});
+document.getElementById("copyText").addEventListener("click",async()=>{
+  try{
+    await navigator.clipboard.writeText(buildBody());
+    showStatus("記入内容をコピーしました。");
+  }catch(e){
+    const ta=document.createElement("textarea");
+    ta.value=buildBody(); document.body.appendChild(ta); ta.select();
+    document.execCommand("copy"); ta.remove();
+    showStatus("記入内容をコピーしました。");
+  }
+});
+document.getElementById("downloadText").addEventListener("click",()=>{
+  const blob=new Blob([buildBody()],{type:"text/plain;charset=utf-8"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  const name=(document.getElementById("teacher1").value.trim()||"講師").replace(/[\\/:*?"<>|]/g,"_");
+  a.download=`夏期講師会議_${name}.txt`;
+  a.click(); URL.revokeObjectURL(a.href);
+});
+document.getElementById("clearAll").addEventListener("click",()=>{
+  if(!confirm("入力内容をすべて消去します。よろしいですか？")) return;
+  fields.forEach(el=>el.value="");
+  localStorage.removeItem(SAVE_KEY);
+  selectCaseVisual("");
+  updateProgress();
+  showStatus("入力内容を消去しました。");
+});
+document.getElementById("saveNow").addEventListener("click",()=>saveData(false));
+document.getElementById("jumpSend").addEventListener("click",()=>{
+  [...document.querySelectorAll("h2")].find(x=>x.textContent.includes("湊先生へ送信")).scrollIntoView({behavior:"smooth"});
+});
+
+let remaining=600, timerId=null;
+function drawTimer(){
+  const m=String(Math.floor(remaining/60)).padStart(2,"0");
+  const s=String(remaining%60).padStart(2,"0");
+  document.getElementById("timer").textContent=`${m}:${s}`;
+}
+document.getElementById("startTimer").addEventListener("click",()=>{
+  if(timerId) return;
+  timerId=setInterval(()=>{
+    if(remaining>0){remaining--;drawTimer();}
+    else{clearInterval(timerId);timerId=null;alert("ペアワーク10分が終了しました。");}
+  },1000);
+});
+document.getElementById("pauseTimer").addEventListener("click",()=>{
+  clearInterval(timerId);timerId=null;
+});
+document.getElementById("resetTimer").addEventListener("click",()=>{
+  clearInterval(timerId);timerId=null;remaining=600;drawTimer();
+});
+
+loadData();
+updateProgress();
+drawTimer();
+</script>
+</body>
+</html>
